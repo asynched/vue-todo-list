@@ -8,7 +8,7 @@ const API = axios.create({
 API.interceptors.request.use(
   (request) => {
     // Skip cache logic if the request method isn't GET
-    if (request.method !== 'GET') {
+    if (request.method !== 'get') {
       return request
     }
 
@@ -17,6 +17,7 @@ API.interceptors.request.use(
 
     if (cachedData) {
       request.data = cache.get(request.url)
+      request.cached = true
 
       // Set an adapter that prevents the axios instance
       // from making another HTTP request
@@ -40,7 +41,7 @@ API.interceptors.request.use(
 API.interceptors.response.use(
   (response) => {
     // Skip cache logic if original request method wasn't GET
-    if (response.config.method !== 'GET') {
+    if (response.config.method !== 'get') {
       return response
     }
 

@@ -6,7 +6,9 @@ export default class APICache {
   }
 
   set(key, state) {
+    console.log('[SET]')
     this.store[key] = state
+    console.log(this.store)
   }
 
   invalidate(key) {
@@ -18,6 +20,7 @@ export default class APICache {
   }
 
   get(key) {
+    console.log('[GET]')
     return this.store[key]
   }
 

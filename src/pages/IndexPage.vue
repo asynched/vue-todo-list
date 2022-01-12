@@ -1,4 +1,6 @@
 <script>
+import API from '@/services/http/api'
+
 import BaseLayout from '@/layouts/BaseLayout.vue'
 import TheCategoriesOverviewSection from '@/components/TheCategoriesOverviewSection.vue'
 import TheTasksSection from '@/components/TheTasksSection.vue'
@@ -13,8 +15,10 @@ export default {
     tasks: [],
   }),
   async mounted() {
-    const response = await fetch('https://jsonplaceholder.typicode.com/todos/')
-    const data = await response.json()
+    const { data } = await API.get(
+      'https://jsonplaceholder.typicode.com/todos/',
+    )
+
     this.tasks = data
   },
 }
