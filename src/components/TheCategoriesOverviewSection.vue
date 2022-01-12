@@ -23,15 +23,15 @@ export default {
     <p class="text-gray-500 mb-4">CATEGORIES</p>
     <div class="grid grid-cols-2 gap-4">
       <category-overview-card
-        background="bg-pink-600"
-        shadow="shadow-pink-400"
+        background="bg-blue-600"
+        shadow="shadow-blue-400"
         name="Completed"
         :tasks-count="completed"
         :total="total"
       />
       <category-overview-card
-        background="bg-blue-600"
-        shadow="shadow-blue-400"
+        background="bg-red-600"
+        shadow="shadow-red-400"
         name="To be finished"
         :tasks-count="notCompleted"
         :total="total"

@@ -15,9 +15,7 @@ export default {
     tasks: [],
   }),
   async mounted() {
-    const { data } = await API.get(
-      'https://jsonplaceholder.typicode.com/todos/',
-    )
+    const { data } = await API.get('/todos')
 
     this.tasks = data
   },
