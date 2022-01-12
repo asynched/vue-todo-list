@@ -1,6 +1,15 @@
 import { createApp } from 'vue'
 import App from './App.vue'
 import router from './routes'
-import './styles/globals.css'
+import Toast, { POSITION } from 'vue-toastification'
 
-createApp(App).use(router).mount('#app')
+import './styles/globals.css'
+import 'vue-toastification/dist/index.css'
+
+createApp(App)
+  .use(router)
+  .use(Toast, {
+    position: POSITION.BOTTOM_RIGHT,
+    timeout: 3000,
+  })
+  .mount('#app')
