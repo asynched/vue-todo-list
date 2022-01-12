@@ -1,3 +1,17 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* Vue Toastification Overrides */
+.Vue-Toastification__toast--info {
+  @apply bg-white text-gray-900 !important;
+}
+.Vue-Toastification__toast--success {
+  @apply bg-green-600 text-white !important;
+}
+.Vue-Toastification__toast--error {
+  @apply bg-red-600 text-white !important;
+}
+.Vue-Toastification__toast--warning {
+  @apply bg-yellow-500 text-white !important;
+}
