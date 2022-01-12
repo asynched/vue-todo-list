@@ -2,7 +2,7 @@ import axios from 'axios'
 import APICache from '@/lib/cache'
 
 const API = axios.create({
-  baseURL: 'https://jsonplaceholder.typicode.com',
+  baseURL: 'http://localhost:8000/api',
 })
 
 API.interceptors.request.use(
@@ -17,7 +17,6 @@ API.interceptors.request.use(
 
     if (cachedData) {
       request.data = cache.get(request.url)
-      request.cached = true
 
       // Set an adapter that prevents the axios instance
       // from making another HTTP request
@@ -40,12 +39,17 @@ API.interceptors.request.use(
 
 API.interceptors.response.use(
   (response) => {
-    // Skip cache logic if original request method wasn't GET
+    const cache = APICache.instance()
+
+    // Invalidate cache store if the request
+    // method isn't GET
+    console.log(response.config, response.request)
     if (response.config.method !== 'get') {
+      cache.invalidate(response.config.url)
       return response
     }
 
-    const cache = APICache.instance()
+    // Set cache store if the request was successfull
     cache.set(response.config.url, response.data)
 
     return response
