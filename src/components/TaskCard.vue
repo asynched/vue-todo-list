@@ -11,6 +11,7 @@ export default {
   >
     <input
       type="checkbox"
+      aria-label="Complete task"
       class="text-red-600 rounded-full w-4 h-4 border-red-600 border-2 focus:ring-transparent"
       :class="{
         'text-blue-400': task.completed,

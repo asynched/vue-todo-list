@@ -25,7 +25,7 @@ export default {
     class="p-4 bg-white rounded-lg shadow-slate-200 shadow-md transition hover:shadow-xl hover:shadow-slate-200"
   >
     <p class="text-gray-500">{{ tasksCount }} tasks</p>
-    <h3 class="mt-2 mb-3 text-2xl font-bold tracking-tighter">{{ name }}</h3>
+    <h2 class="mt-2 mb-3 text-2xl font-bold tracking-tighter">{{ name }}</h2>
     <transition name="fill" appear>
       <div class="h-1 bg-gray-200 rounded">
         <div

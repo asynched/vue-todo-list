@@ -98,18 +98,18 @@ export default {
       </div>
       <div class="flex justify-end text-lg gap-4">
         <button
-          class="w-12 h-12 grid place-items-center border-2 text-red-600 border-red-600 rounded transition ease-in-out hover:bg-red-600 hover:text-white hover:shadow-md hover:shadow-red-300"
+          class="w-10 h-10 grid place-items-center border-2 text-red-600 border-red-600 rounded transition ease-in-out hover:bg-red-600 hover:text-white hover:shadow-md hover:shadow-red-300"
           aria-label="Delete task"
           @click="handleDelete"
         >
-          <trash-icon class="w-5 h-5" />
+          <trash-icon class="w-4 h-4" />
         </button>
         <button
-          class="w-12 h-12 grid place-items-center rounded transition ease-in-out bg-blue-600 text-white hover:shadow-md hover:shadow-blue-300"
+          class="w-10 h-10 grid place-items-center rounded transition ease-in-out bg-blue-600 text-white hover:shadow-md hover:shadow-blue-300"
           aria-label="Save task"
           @click="handleSave"
         >
-          <check-icon class="w-5 h-5" />
+          <check-icon class="w-4 h-4" />
         </button>
       </div>
     </div>

@@ -52,6 +52,8 @@ export default {
 
 @keyframes show-up {
   0% {
+    transform: translate(0, 10%);
+    opacity: 0;
   }
   100% {
     transform: translate(0, 0);
