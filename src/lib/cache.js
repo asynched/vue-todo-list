@@ -1,27 +1,46 @@
+import Logger from '@/utils/log'
+
 export default class APICache {
   static #instance
+  static DEBUG = true
+  #store = {}
 
   constructor() {
-    this.store = {}
+    this.#store = {}
   }
 
   set(key, state) {
-    console.log('[SET]')
-    this.store[key] = state
-    console.log(this.store)
+    this.#store[key] = state
+
+    if (APICache.DEBUG) {
+      Logger.info(
+        `The key ${key} has been set in the store, current state is:`,
+        this.#store,
+      )
+    }
   }
 
   invalidate(key) {
-    delete this.store[key]
+    delete this.#store[key]
+
+    if (APICache.DEBUG) {
+      Logger.info(
+        `The key ${key} has been removed from the store, current state is:`,
+        this.#store,
+      )
+    }
   }
 
-  invalidateStore() {
-    this.store = {}
+  invalidateCache() {
+    this.#store = {}
   }
 
   get(key) {
-    console.log('[GET]')
-    return this.store[key]
+    if (APICache.DEBUG) {
+      Logger.info(`Getting key ${key} from the store`)
+    }
+
+    return this.#store[key]
   }
 
   /**
