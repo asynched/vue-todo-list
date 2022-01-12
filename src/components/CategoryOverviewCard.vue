@@ -12,6 +12,11 @@ export default {
       return (100 * partial) / total
     },
   },
+  computed: {
+    percentage() {
+      return this.calculatePercentage(this.tasksCount, this.total)
+    },
+  },
 }
 </script>
 
@@ -21,12 +26,28 @@ export default {
   >
     <p class="text-gray-500">{{ tasksCount }} tasks</p>
     <h3 class="mt-2 mb-3 text-2xl font-bold tracking-tighter">{{ name }}</h3>
-    <!-- Progress bar -->
-    <div class="h-1 bg-gray-200 rounded">
-      <div
-        :style="`width: ${calculatePercentage(tasksCount, total)}%`"
-        :class="`h-full ${background} rounded shadow-md ${shadow}`"
-      ></div>
-    </div>
+    <transition name="fill" appear>
+      <div class="h-1 bg-gray-200 rounded">
+        <div
+          :style="`width: ${percentage}%`"
+          :class="`h-full ${background} rounded shadow-md ${shadow}`"
+        ></div>
+      </div>
+    </transition>
   </div>
 </template>
+
+<style>
+.fill-enter-active {
+  animation: fill 750ms ease-in-out;
+}
+
+@keyframes fill {
+  0% {
+    width: 0;
+  }
+  100% {
+    width: 100%;
+  }
+}
+</style>
