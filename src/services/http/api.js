@@ -2,7 +2,7 @@ import axios from 'axios'
 import APICache from '@/lib/cache'
 
 const API = axios.create({
-  baseURL: 'http://localhost:8000/api',
+  baseURL: 'http://localhost:3333/api',
 })
 
 API.interceptors.request.use(
