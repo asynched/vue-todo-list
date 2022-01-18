@@ -2,7 +2,7 @@ import axios from 'axios'
 import APICache from '@/lib/cache'
 
 const API = axios.create({
-  baseURL: 'http://localhost:3333/api',
+  baseURL: 'https://vue-todo-tasks.herokuapp.com/api',
 })
 
 API.interceptors.request.use(
